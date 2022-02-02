@@ -33,7 +33,6 @@ button {
   font-size: 1rem;
   font-weight: 700;
   font-family: monospace;
-
   transition: 300ms ease;
   margin: 5px auto;
 }
