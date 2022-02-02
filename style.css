@@ -1,0 +1,45 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: rgb(20, 20, 20);
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+div {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+
+  transition: 500ms ease;
+}
+.info {
+  color: #525252;
+  font-weight: 400;
+}
+h1 {
+  color: goldenrod;
+}
+h2 {
+  text-align: left;
+}
+button {
+  color: #ffffff;
+  width: 200px;
+  background: goldenrod;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: monospace;
+  margin: 5px 0px;
+  transition: 300ms ease;
+}
+.replay {
+  display: none;
+}
+button:active {
+  transform: scale(95%);
+}
