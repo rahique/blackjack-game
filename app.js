@@ -40,13 +40,11 @@ function newCard() {
   renderGame();
   cardsEl.textContent = `Cards: ${cards}`;
   sumEl.textContent = "Sum: " + sum;
-  if (isAlive === false) {
+  if (isAlive === false || hasBlackJack === true) {
     newCardEl.style.display = "none";
     startEl.style.display = "none";
     replay.style.display = "block";
-  } else if (hasBlackJack === true) {
-    newCardEl.style.display = "none";
-    startEl.style.display = "none";
-    replay.style.display = "block";
+  } else {
+    return;
   }
 }
