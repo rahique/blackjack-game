@@ -10,6 +10,14 @@ let cardsEl = document.querySelector(".cardEl");
 let newCardEl = document.querySelector(".newCardEl");
 let startEl = document.querySelector(".startEl");
 let replay = document.querySelector(".replay");
+let playerEl = document.querySelector(".player_el");
+// object
+let player = {
+  name: "Rahique",
+  chips: 200,
+};
+// paler details
+playerEl.textContent = `${player.name} : $${player.chips}`;
 // start game
 function startGame() {
   if (isAlive === true || hasBlackJack === false) {
@@ -23,7 +31,7 @@ function startGame() {
 }
 // random number function
 function random() {
-  let random = Math.floor(Math.random() * 13) + 1;
+  let random = Math.floor(Math.random() * 10) + 1;
   if (random === 1) {
     return 11;
   } else if (random > 10) {
@@ -65,3 +73,10 @@ function newCard() {
     return;
   }
 }
+// let castle = {
+//   name: "Prime Castle",
+//   isAvailable: true,
+//   price: 500,
+//   feature: ["Good", "Cozy", "Grand"],
+// };
+// console.log(castle.name, castle.feature);
