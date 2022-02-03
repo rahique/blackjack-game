@@ -1,9 +1,7 @@
-let firstCard = random();
-let secondCard = random();
-let cards = [firstCard, secondCard];
-let sum = firstCard + secondCard;
+let cards = [];
+let sum = 0;
 let hasBlackJack = false;
-let isAlive = true;
+let isAlive = false;
 let message = "";
 // calling form HTML
 let messageEl = document.querySelector(".messageEl");
@@ -14,11 +12,24 @@ let startEl = document.querySelector(".startEl");
 let replay = document.querySelector(".replay");
 // start game
 function startGame() {
-  renderGame();
+  if (isAlive === true || hasBlackJack === false) {
+    let firstCard = random();
+    let secondCard = random();
+    sum = firstCard + secondCard;
+    cards = [firstCard, secondCard];
+    renderGame();
+  }
+  isAlive = true;
 }
 // random number function
 function random() {
-  return Math.floor(Math.random() * 10);
+  let random = Math.floor(Math.random() * 13) + 1;
+  if (random === 1) {
+    return 11;
+  } else if (random > 10) {
+    return 10;
+  }
+  return random;
 }
 // render game function
 function renderGame() {
@@ -26,9 +37,9 @@ function renderGame() {
   cardsEl.textContent = `Cards: ${cards}`;
   if (sum < 21) {
     message = "Do you want a new card?🙄";
+    isAlive = true;
   } else if (sum === 21) {
     message = "You've got the black Jack🥳";
-
     hasBlackJack = true;
   } else {
     message = "You are out of the game😭";
@@ -38,12 +49,14 @@ function renderGame() {
 }
 // new card function
 function newCard() {
-  let randomNumber = random();
-  cards.push(randomNumber);
-  sum += randomNumber;
-  cardsEl.textContent = `Cards: ${cards}`;
-  sumEl.textContent = "Sum: " + sum;
-  renderGame();
+  if (isAlive === true && hasBlackJack === false) {
+    let randomNumber = random();
+    cards.push(randomNumber);
+    sum += randomNumber;
+    cardsEl.textContent = `Cards: ${cards}`;
+    sumEl.textContent = "Sum: " + sum;
+    renderGame();
+  }
   if (isAlive === false || hasBlackJack === true) {
     newCardEl.style.display = "none";
     startEl.style.display = "none";
