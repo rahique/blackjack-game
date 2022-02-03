@@ -1,5 +1,5 @@
-let firstCard = 0;
-let secondCard = 0;
+let firstCard = random();
+let secondCard = random();
 let cards = [firstCard, secondCard];
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
@@ -15,6 +15,10 @@ let replay = document.querySelector(".replay");
 // start game
 function startGame() {
   renderGame();
+}
+// random number function
+function random() {
+  return Math.floor(Math.random() * 10);
 }
 // render game function
 function renderGame() {
@@ -34,12 +38,12 @@ function renderGame() {
 }
 // new card function
 function newCard() {
-  let randomNumber = Math.floor(Math.random() * 10);
+  let randomNumber = random();
   cards.push(randomNumber);
   sum += randomNumber;
-  renderGame();
   cardsEl.textContent = `Cards: ${cards}`;
   sumEl.textContent = "Sum: " + sum;
+  renderGame();
   if (isAlive === false || hasBlackJack === true) {
     newCardEl.style.display = "none";
     startEl.style.display = "none";
