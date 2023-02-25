@@ -1,2 +1,2 @@
 # js-basic-calculator
-#  https://rahique.github.io/JS_blackjack_game/
+# https://rahique.github.io/blackjack-game/
